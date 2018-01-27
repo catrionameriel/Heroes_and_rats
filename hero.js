@@ -15,4 +15,33 @@ Hero.prototype.eat = function (food) {
   else this.health += food.replenishment;
 };
 
+Hero.prototype.addTask = function (task) {
+  this.tasks.push(task);
+};
+
+// Hero.prototype.sortTasks = function (whatToSortBy) {
+//   this.tasks.sort() {
+//   //   if (task1.whatToSortBy < task2.whatToSortBy) {
+//   //     return -1;
+//   //   }
+//   //   if (task2.whatToSortBy > task2.whatToSortBy) {
+//   //     return 1;
+//   //   }
+//   //   else return 0;
+//   // })
+//   return task1 - task2;
+//   }
+// };
+
+Hero.prototype.getTasksByCompletion = function (completionType) {
+  if (completionType === 'Incomplete') {
+    completionType = false;
+  }
+  else completionType = true;
+
+  return this.tasks.filter(function (task) {
+      return completionType === task.complete
+  });
+};
+
 module.exports = Hero;
