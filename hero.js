@@ -8,4 +8,11 @@ const Hero = function (name, favFood) {
   this.tasks = [];
 };
 
+Hero.prototype.eat = function (food) {
+  if (food.name !== this.favouriteFood) {
+    this.health += food.replenishment;
+  }
+  else this.health += (food.replenishment * 1.5);
+};
+
 module.exports = Hero;
