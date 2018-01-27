@@ -9,10 +9,13 @@ const Hero = function (name, favFood) {
 };
 
 Hero.prototype.eat = function (food) {
-  if (food.name === this.favouriteFood) {
-    this.health += (food.replenishment * 1.5);
+  if (!food.poisonous){
+    if (food.name === this.favouriteFood) {
+      this.health += (food.replenishment * 1.5);
+    }
+    else this.health += food.replenishment;
   }
-  else this.health += food.replenishment;
+  else this.health -= food.replenishment;
 };
 
 Hero.prototype.addTask = function (task) {
