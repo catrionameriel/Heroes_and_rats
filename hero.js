@@ -33,12 +33,15 @@ Hero.prototype.addTask = function (task) {
 //   }
 // };
 
-Hero.prototype.getTasksByCompletion = function (completionType) {
-  if (completionType === 'Incomplete') {
-    completionType = false;
+Hero.prototype.getBooleanCompletionTypeFromStringInput = function (string) {
+  if (string === 'Incomplete') {
+    return false;
   }
-  else completionType = true;
+  else return true;
+};
 
+Hero.prototype.getTasksByCompletion = function (completionTypeString) {
+  let completionType = this.getBooleanCompletionTypeFromStringInput(completionTypeString);
   return this.tasks.filter(function (task) {
       return completionType === task.complete
   });
