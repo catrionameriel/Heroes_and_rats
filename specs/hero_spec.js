@@ -15,7 +15,7 @@ describe ('Hero', function() {
   let rat;
 
   beforeEach(function() {
-    hero = new Hero('Theobold', 'Yoghurt');
+    hero = new Hero('Theobold', 'Yoghurt', 'Invisibility');
     food1 = new Food('Bread', 10);
     food2 = new Food('Yoghurt', 20);
     task1 = new Task('Hard', 'Urgent', 'Sword');
@@ -38,6 +38,10 @@ describe ('Hero', function() {
 
   it('hero can say name', function() {
     assert.strictEqual(hero.talk(), 'My name is Theobold and I am very strong!')
+  })
+
+  it('hero has superpower', function() {
+    assert.strictEqual(hero.superpower, 'Invisibility');
   })
 
   it('heroes tasks start at 0', function() {
