@@ -19,19 +19,41 @@ Hero.prototype.addTask = function (task) {
   this.tasks.push(task);
 };
 
-// Hero.prototype.sortTasks = function (whatToSortBy) {
-//   this.tasks.sort() {
-//   //   if (task1.whatToSortBy < task2.whatToSortBy) {
-//   //     return -1;
-//   //   }
-//   //   if (task2.whatToSortBy > task2.whatToSortBy) {
-//   //     return 1;
-//   //   }
-//   //   else return 0;
-//   // })
-//   return task1 - task2;
-//   }
-// };
+Hero.prototype.sortTasksByUrgency = function () {
+      return this.tasks.sort(function(first, second) {
+          if(first.urgency < second.urgency) {
+            return -1;
+          }
+          if (first.urgency > second.urgency) {
+            return 1;
+          }
+          else return 0;
+        });
+  };
+
+Hero.prototype.sortTasksByDifficulty = function () {
+      return this.tasks.sort(function(first, second) {
+          if(first.difficulty < second.difficulty) {
+            return -1;
+          }
+          if (first.difficulty > second.difficulty) {
+            return 1;
+          }
+          else return 0;
+        });
+  };
+
+Hero.prototype.sortTasksByReward = function () {
+      return this.tasks.sort(function(first, second) {
+          if(first.reward < second.reward) {
+            return -1;
+          }
+          if (first.reward > second.reward) {
+            return 1;
+          }
+          else return 0;
+        });
+  };
 
 Hero.prototype.getBooleanCompletionTypeFromStringInput = function (string) {
   if (string === 'Incomplete') {

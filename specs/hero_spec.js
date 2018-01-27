@@ -18,7 +18,7 @@ describe ('Hero', function() {
     food2 = new Food('Yoghurt', 20);
     task1 = new Task('Hard', 'Urgent', 'Sword');
     task2 = new Task('Easy', 'Can Wait', 'Coin');
-    task3 = new Task('Easy', 'Urgent', 'Coin');
+    task3 = new Task('Easy', 'Urgent', 'Apple');
   })
 
   it('hero has name', function() {
@@ -57,13 +57,29 @@ describe ('Hero', function() {
     assert.strictEqual(hero.tasks.length, 2)
   })
 
-  // it('can sort tasks by difficulty', function() {
-  //   hero.addTask(task1);
-  //   hero.addTask(task2);
-  //   hero.addTask(task3);
-  //   hero.sortTasks(this.difficulty);
-  //   assert.deepEqual(hero.tasks, [task2, task3, task1]);
-  // })
+  it('can sort tasks by difficulty', function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    hero.sortTasksByDifficulty()
+    assert.deepEqual(hero.tasks, [task2, task3, task1]);
+  })
+
+  it('can sort tasks by urgency', function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    hero.sortTasksByUrgency();
+    assert.deepEqual(hero.tasks,[task2, task1, task3]);
+  })
+
+  it('can sort tasks by reward', function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    hero.sortTasksByReward()
+    assert.deepEqual(hero.tasks, [task3, task2, task1]);
+  })
 
    it('can get tasks by incomplete', function() {
      hero.addTask(task1);
