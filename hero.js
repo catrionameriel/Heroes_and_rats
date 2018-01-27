@@ -19,36 +19,12 @@ Hero.prototype.addTask = function (task) {
   this.tasks.push(task);
 };
 
-Hero.prototype.sortTasksByUrgency = function () {
+ Hero.prototype.sortTasks = function (sortType) {
       return this.tasks.sort(function(first, second) {
-          if(first.urgency < second.urgency) {
+          if(first[sortType] < second[sortType]) {
             return -1;
           }
-          if (first.urgency > second.urgency) {
-            return 1;
-          }
-          else return 0;
-        });
-  };
-
-Hero.prototype.sortTasksByDifficulty = function () {
-      return this.tasks.sort(function(first, second) {
-          if(first.difficulty < second.difficulty) {
-            return -1;
-          }
-          if (first.difficulty > second.difficulty) {
-            return 1;
-          }
-          else return 0;
-        });
-  };
-
-Hero.prototype.sortTasksByReward = function () {
-      return this.tasks.sort(function(first, second) {
-          if(first.reward < second.reward) {
-            return -1;
-          }
-          if (first.reward > second.reward) {
+          if (first[sortType] > second[sortType]) {
             return 1;
           }
           else return 0;

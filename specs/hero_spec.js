@@ -61,7 +61,7 @@ describe ('Hero', function() {
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
-    hero.sortTasksByDifficulty()
+    hero.sortTasks('difficulty')
     assert.deepEqual(hero.tasks, [task2, task3, task1]);
   })
 
@@ -69,7 +69,7 @@ describe ('Hero', function() {
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
-    hero.sortTasksByUrgency();
+    hero.sortTasks('urgency');
     assert.deepEqual(hero.tasks,[task2, task1, task3]);
   })
 
@@ -77,7 +77,7 @@ describe ('Hero', function() {
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
-    hero.sortTasksByReward()
+    hero.sortTasks('reward');
     assert.deepEqual(hero.tasks, [task3, task2, task1]);
   })
 
