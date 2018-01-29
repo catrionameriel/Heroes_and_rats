@@ -2,11 +2,12 @@ const Hero = function (name, favFood, superpower) {
   this.name = name;
   this.health = 100;
   this.favouriteFood = favFood;
-  this.talk = function() {
-    return `My name is ${this.name} and I am very strong!`
-  }
   this.tasks = [];
   this.superpower = superpower;
+};
+
+Hero.prototype.talk = function () {
+    return `My name is ${this.name} and I am very strong!`
 };
 
 Hero.prototype.eat = function (food) {
@@ -35,8 +36,8 @@ Hero.prototype.addTask = function (task) {
         });
   };
 
-Hero.prototype.getBooleanCompletionTypeFromStringInput = function (string) {
-  if (string === 'Incomplete') {
+Hero.prototype.getBooleanCompletionTypeFromStringInput = function (str) {
+  if (str === 'Incomplete') {
     return false;
   }
   else return true;
